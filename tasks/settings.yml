@@ -1,0 +1,23 @@
+---
+
+- name: Set workstation hostname
+  hostname:
+    name: "{{ workstation_hostname }}"
+
+- name: Create additional groups
+  group:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ workstation_additional_groups }}"
+
+- name: Add additional group to {{ workstation_user }}
+  user:
+    name: "{{ workstation_user }}"
+    groups: "{{ item }}"
+    append: true
+  loop: "{{ workstation_additional_groups }}"
+
+- name: Set custom bash profile
+  copy:
+    src: mikronix.sh
+    dest: /etc/profile.d/mikronix.sh

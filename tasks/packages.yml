@@ -1,0 +1,11 @@
+---
+
+- name: Install packages
+  dnf:
+    name: "{{ workstation_packages }}"
+    state: present
+
+- name: Install windows font
+  dnf:
+    name: https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
+    state: present

@@ -1,0 +1,10 @@
+---
+
+- name: Install molecule at user space
+  pip:
+    name: "{{ item }}"
+    state: present
+    virtualenv: ~/.molecule
+    virtualenv_command: ~/.local/bin/virtualenv
+  become: false
+  loop: ['molecule', 'docker']

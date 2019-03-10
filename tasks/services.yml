@@ -1,0 +1,8 @@
+---
+
+- name: Ensure services started when boot
+  systemd:
+    name: "{{ item }}"
+    state: started
+    enabled: true
+  loop: "{{ workstation_services }}"

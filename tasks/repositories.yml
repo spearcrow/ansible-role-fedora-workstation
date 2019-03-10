@@ -1,0 +1,33 @@
+---
+
+- name: Enable Fastestmirror plugin
+  ini_file:
+    path: /etc/dnf/dnf.conf
+    section: main
+    option: fastestmirror
+    value: True
+
+- name: Install Google Chrome repository
+  yum_repository:
+    name: google-chrome
+    file: google-chrome
+    description: google-chrome
+    baseurl: https://dl.google.com/linux/chrome/rpm/stable/x86_64
+    gpgcheck: true
+    gpgkey: https://dl.google.com/linux/linux_signing_key.pub
+    enabled: true
+
+- name: Install VSCode repository
+  yum_repository:
+    name: code
+    file: vscode
+    description: Visual Studio Code
+    baseurl: https://packages.microsoft.com/yumrepos/vscode
+    gpgcheck: true
+    gpgkey: https://packages.microsoft.com/keys/microsoft.asc
+    enabled: true
+
+- name: Install Free and Nonfree RPMFusion repositories
+  dnf:
+    name: "{{ workstation_rpmfusion_repositories }}"
+    state: present

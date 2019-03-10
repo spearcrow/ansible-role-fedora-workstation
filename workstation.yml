@@ -1,0 +1,21 @@
+---
+
+- name: Setup My Fedora Workstation
+  hosts: workstation
+  become: true
+
+  vars_files:
+    - defaults/main.yml
+
+  tasks:
+    - import_tasks: tasks/repositories.yml
+
+    - import_tasks: tasks/packages.yml
+
+    - import_tasks: tasks/python.yml
+
+    - import_tasks: tasks/flatpak.yml
+
+    - import_tasks: tasks/settings.yml
+
+    - import_tasks: tasks/services.yml

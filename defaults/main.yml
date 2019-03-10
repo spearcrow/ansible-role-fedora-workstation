@@ -1,0 +1,41 @@
+---
+
+workstation_user: santo
+workstation_hostname: GN-001-Exia
+
+workstation_additional_groups:
+  - docker
+
+workstation_rpmfusion_repositories:
+  - https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_major_version }}.noarch.rpm
+  - https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_major_version }}.noarch.rpm
+
+workstation_packages:
+  - bash-completion
+  - cabextract
+  - code
+  - curl
+  - docker
+  - flameshot
+  - flatpak
+  - fontconfig
+  - git
+  - google-chrome-stable
+  - libvirt-daemon
+  - NetworkManager-fortisslvpn-gnome
+  - qemu
+  - qemu-kvm
+  - remmina
+  - tlp
+  - tlp-rdw
+  - virt-manager
+  - xorg-x11-font-utils
+
+workstation_flatpak_packages:
+  - com.getpostman.Postman
+  - com.spotify.Client
+  - org.videolan.VLC
+
+workstation_services:
+  - docker
+  - libvirtd
