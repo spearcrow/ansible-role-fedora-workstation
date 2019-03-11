@@ -27,6 +27,16 @@
     gpgkey: https://packages.microsoft.com/keys/microsoft.asc
     enabled: true
 
+- name: Install PlayOnLinux repository
+  yum_repository:
+    name: playonlinux
+    file: playonlinux
+    description: PlayOnLinux Official repository
+    baseurl: http://rpm.playonlinux.com/fedora/yum/base
+    gpgcheck: false
+    gpgkey: http://rpm.playonlinux.com/public.gpg
+    enabled: true
+
 - name: Install Free and Nonfree RPMFusion repositories
   dnf:
     name: "{{ workstation_rpmfusion_repositories }}"
