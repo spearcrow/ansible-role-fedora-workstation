@@ -23,12 +23,14 @@ workstation_packages:
   - google-chrome-stable
   - libvirt-daemon
   - NetworkManager-fortisslvpn-gnome
+  - playonlinux
   - qemu
   - qemu-kvm
   - remmina
   - tlp
   - tlp-rdw
   - virt-manager
+  - wine
   - xorg-x11-font-utils
 
 workstation_flatpak_packages:
