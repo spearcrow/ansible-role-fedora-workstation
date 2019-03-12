@@ -6,14 +6,15 @@
 
 - name: Create additional groups
   group:
-    name: "{{ item }}"
+    name: "{{ item.name }}"
     state: present
+    system: "{{ item.system | default(omit) }}"
   loop: "{{ workstation_additional_groups }}"
 
 - name: Add additional group to {{ workstation_user }}
   user:
     name: "{{ workstation_user }}"
-    groups: "{{ item }}"
+    groups: "{{ item.name }}"
     append: true
   loop: "{{ workstation_additional_groups }}"
 

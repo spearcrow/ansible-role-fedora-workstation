@@ -4,7 +4,8 @@ workstation_user: santo
 workstation_hostname: GN-001-Exia
 
 workstation_additional_groups:
-  - docker
+  - name: docker
+    system: true
 
 workstation_rpmfusion_repositories:
   - https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_major_version }}.noarch.rpm
@@ -14,8 +15,10 @@ workstation_packages:
   - bash-completion
   - cabextract
   - code
+  - containerd.io
   - curl
-  - docker
+  - docker-ce
+  - docker-ce-cli
   - flameshot
   - flatpak
   - fontconfig
