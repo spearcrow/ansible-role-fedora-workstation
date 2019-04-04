@@ -54,8 +54,8 @@ function parse_git_dirty {
 
 if [[ ! -z $BASH ]]; then
     if [[ $EUID -eq 0 ]]; then
-        export PS1="\[\e[36m\]\d\[\e[m\]\[\e[37m\] \[\e[m\]\[\e[36m\]\t\[\e[m\]\[\e[37m\] \[\e[m\]\[\e[33m\][\[\e[m\]\[\e[31m\]\u\[\e[m\]\[\e[31m\]@\[\e[m\]\[\e[31m\]\h\[\e[m\] \[\e[36m\]\w\[\e[m\]\[\e[33m\]]\[\e[m\] \[\e[32m\]\`parse_git_branch\`\[\e[m\]\n# "
+        export PS1="┌── \[\e[36m\]\d\[\e[m\]\[\e[37m\] \[\e[m\]\[\e[36m\]\t\[\e[m\]\[\e[37m\] \[\e[m\]\[\e[33m\][\[\e[m\]\[\e[31m\]\u\[\e[m\]\[\e[31m\]@\[\e[m\]\[\e[31m\]\h\[\e[m\] \[\e[36m\]\w\[\e[m\]\[\e[33m\]]\[\e[m\] \[\e[32m\]\`parse_git_branch\`\[\e[m\]\n└──╼ # "
     else
-export PS1="\[\e[36m\]\d\[\e[m\]\[\e[37m\] \[\e[m\]\[\e[36m\]\t\[\e[m\]\[\e[37m\] \[\e[m\]\[\e[33m\][\[\e[m\]\[\e[34m\]\u\[\e[m\]\[\e[34m\]@\[\e[m\]\[\e[34m\]\h\[\e[m\] \[\e[36m\]\w\[\e[m\]\[\e[33m\]]\[\e[m\] \[\e[32m\]\`parse_git_branch\`\[\e[m\]\n$ "
+		export PS1="┌── \[\e[36m\]\d\[\e[m\]\[\e[37m\] \[\e[m\]\[\e[36m\]\t\[\e[m\]\[\e[37m\] \[\e[m\]\[\e[33m\][\[\e[m\]\[\e[34m\]\u\[\e[m\]\[\e[34m\]@\[\e[m\]\[\e[34m\]\h\[\e[m\] \[\e[36m\]\w\[\e[m\]\[\e[33m\]]\[\e[m\] \[\e[32m\]\`parse_git_branch\`\[\e[m\]\n└──╼ $ "
     fi
 fi
