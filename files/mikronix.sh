@@ -5,6 +5,27 @@ HISTFILESIZE=3000
 
 HISTTIMEFORMAT="%F %T "
 
+# Reset Color
+Color_Off="\[\033[0m\]"       # Text Reset
+
+# Regular Colors
+Red="\[\033[0;31m\]"          # Red
+Green="\[\033[0;32m\]"        # Green
+Yellow="\[\033[0;33m\]"       # Yellow
+Blue="\[\033[0;34m\]"         # Blue
+Purple="\[\033[0;35m\]"       # Purple
+Cyan="\[\033[0;36m\]"         # Cyan
+White="\[\033[0;37m\]"        # White
+
+#get current virtualenv
+function set_virtualenv () {
+  if test -z "$VIRTUAL_ENV" ; then
+      echo ""
+  else
+			echo "($(basename "$VIRTUAL_ENV"))"
+  fi
+}
+
 # get current branch in git repo
 function parse_git_branch() {
 	BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
@@ -54,8 +75,8 @@ function parse_git_dirty {
 
 if [[ ! -z $BASH ]]; then
     if [[ $EUID -eq 0 ]]; then
-        export PS1="┌── \[\e[36m\]\d\[\e[m\]\[\e[37m\] \[\e[m\]\[\e[36m\]\t\[\e[m\]\[\e[37m\] \[\e[m\]\[\e[33m\][\[\e[m\]\[\e[31m\]\u\[\e[m\]\[\e[31m\]@\[\e[m\]\[\e[31m\]\h\[\e[m\] \[\e[36m\]\w\[\e[m\]\[\e[33m\]]\[\e[m\] \[\e[32m\]\`parse_git_branch\`\[\e[m\]\n└──╼ # "
+			export PS1="${Cyan}\d \t${Color_Off} ${Yellow}[${Color_Off}${Red}\u@\h${Color_Off} ${Cyan}\w${Color_Off}${Yellow}]${Color_Off} ${Green}\`parse_git_branch\`${Color_Off}\n$ "
     else
-		export PS1="┌── \[\e[36m\]\d\[\e[m\]\[\e[37m\] \[\e[m\]\[\e[36m\]\t\[\e[m\]\[\e[37m\] \[\e[m\]\[\e[33m\][\[\e[m\]\[\e[34m\]\u\[\e[m\]\[\e[34m\]@\[\e[m\]\[\e[34m\]\h\[\e[m\] \[\e[36m\]\w\[\e[m\]\[\e[33m\]]\[\e[m\] \[\e[32m\]\`parse_git_branch\`\[\e[m\]\n└──╼ $ "
+			export PS1="${Cyan}\d \t${Color_Off} ${Yellow}[${Color_Off}${Blue}\u@\h${Color_Off} ${Cyan}\w${Color_Off}${Yellow}]${Color_Off} ${Green}\`parse_git_branch\`${Color_Off}\n$ "
     fi
 fi
