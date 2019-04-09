@@ -30,6 +30,7 @@ workstation_packages:
   - qemu
   - qemu-kvm
   - remmina
+  - terminator
   - tlp
   - tlp-rdw
   - virt-manager
